@@ -88,7 +88,7 @@ Imposta una workingcopy su geopackage o postgres in cui con opportuni trigger vi
 
 --
 
-![](/home/enrico/dev/html/geospatial_versioning/doc/kart_features.png)
+![](doc/kart_features.png)
 
 --
 
@@ -238,9 +238,15 @@ Da un punto di vista strettamente tecnologico l'applicazione consiste in:
 
 --
 
+## Editing con QGIS
+
+![](doc\djakart_edit.png)
+
+--
+
 ## Contronto tra versioni
 
-![](doc/versione_confronto2.png)
+![](doc\djakart_confronto.gif)
 
 --
 
@@ -252,7 +258,7 @@ Da un punto di vista strettamente tecnologico l'applicazione consiste in:
 
 ## Risoluzione dei conflitti
 
-![](https://github.com/enricofer/djakart/raw/master/doc/screenshot09.png)
+![](doc/djakart_conflitti.png)
 
 --
 
