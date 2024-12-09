@@ -4,11 +4,7 @@ Gestire il flusso di lavoro e tenere traccia delle modifiche dei dati geospazial
 
 [(C)2024 CC-BY-SA](https://creativecommons.org/licenses/by-sa/3.0/it/) Enrico Ferreguti enricofer@gmail.com
 
---
-
-## Le tabelle non hanno memoria
-
-
+![https://miro.medium.com/v2/resize:fit:600/0*OIWyeCYB5fYhUhgF.jpg](https://miro.medium.com/v2/resize:fit:600/0*OIWyeCYB5fYhUhgF.jpg)
 
 
 
@@ -47,15 +43,13 @@ Gestire il flusso di lavoro e tenere traccia delle modifiche dei dati geospazial
 
 - Database
 - BIM/CAD
-- Software
-  - SVN
+- Sviluppo Software
+  - [SVN](https://subversion.apache.org/)
   - [GIT](https://git-scm.com/about/)
 
 
 
---
-
-## Strumenti di versionamento opensource
+## Strumenti di versionamento  geografico opensource
 
 - strumenti a livello di DB [POSTGRES](https://pgxn.org/search?q=version&in=extensions)
 
@@ -137,33 +131,46 @@ Imposta una workingcopy su geopackage o postgres in cui con opportuni trigger vi
 
 --
 
-| Comandi principali       |      |      |
-| ------------------------ | ---- | ---- |
-| `kart init [<repository>]`<br />`kart init --workingcopy=PATH.gpkg`<br />`kart init --workingcopy=postgresql://USER:PASSWD@HOST/DBNAME/DBSCHEMA` | inizializzazione del repository con indicazione della workingcopy |      |
-| `kart create-workingcopy PATH.gpkg` | creazione di una nuova workingcopy | |
-| `kart import <source> [<table>] [<table>]` | importazione di dati geospaziali da sorgenti esterne |      |
-| `kart commit -m "message"` | registrazione di un pacchetto di modifiche |      |
-| `kart status` | per ottenere informazioni sul repository e sullo stato della workingcopy | |
-| `kart log` | per ottenere la storia delle modifiche | |
-| `kart diff` | per ottenere informazioni sulle differenze tra commit | |
-| `kart restore` | per cancellare le modifiche nella workingcopy e riportarla allo stato registrato con l'ultimo commit | |
-| `kart reset` | per annullare un pacchetto di modifiche | |
+| Comandi di configurazione |      |
+| ------------------------ | ---- |
+| `kart init [<repository>]`<br />`kart init --workingcopy=PATH.gpkg`<br />`kart init --workingcopy=postgresql://USER:PASSWD@HOST/DBNAME/DBSCHEMA` | inizializzazione del repository con indicazione della workingcopy |
+| `kart create-workingcopy PATH.gpkg` | creazione di una nuova workingcopy |
+| **Comandi di import/export** |  |
+| `kart import <source> [<table>] [<table>]` | importazione di dati geospaziali da sorgenti esterne |
+| `kart export [<dataset>] [<file>]` | Esportazione di dati geospaziali in formati standard (Geopackage, shapefiles ...) |
+| **Registrazione** |                                                              |
+| `kart commit -m "message"` | registrazione di un pacchetto di modifiche |
+
+
 
 --
 
-| comandi                            |                                                              |      |
-| ---------------------------------- | ------------------------------------------------------------ | ---- |
-| `kart checkout -b <branch>`        | Creare un ramo di modifica (branch) che raggruppa un insieme coordinato di commit |      |
-| `kart checkout <branch>`           | Passare da un branch all'altro aggiornando la workingcopy con le relative modifiche |      |
-| `kart merge <branch>` `            | Includere un branch "figlio" nel branch "padre"              |      |
-| `kart conflicts`                   | Elencare i conflitti di merge                                |      |
-| `kart resolve`                     | Risoluzione dei conflitti di merge                           |      |
-| `kart status`                      | per ottenere informazioni sul repository e sullo stato della workingcopy |      |
-| `kart log`                         | per ottenere la storia delle modifiche                       |      |
-| `kart diff`                        | per ottenere informazioni sulle differenze tra commit        |      |
-| `kart clone [url_repository]`</br> | Clonare un repository remoto per effettuare delle modifiche locali |      |
-| `kart pull [remote] [branch]`      | Importare le modifiche da un repository remoto               |      |
-| `kart push [remote] [branch]`      | Esportare le modifiche verso un repository remoto            |      |
+| Comandi di interrogazione           |                                                              |
+| ----------------------------------- | ------------------------------------------------------------ |
+| `kart status`                       | per ottenere informazioni sul repository e sullo stato della workingcopy |
+| `kart log`                          | per ottenere la storia delle modifiche                       |
+| `kart diff`                         | per ottenere informazioni sulle differenze tra commit        |
+| **Comandi di controllo del flusso** |                                                              |
+| `kart checkout <commit_id>`         | Per ottenere lo stato del repository corrispondente ad un determinato *commit* |
+| `kart restore`                      | per cancellare le modifiche nella *workingcopy* e riportarla allo stato registrato con l'ultimo *commit* |
+| `kart reset`                        | per annullare un pacchetto di modifiche                      |
+
+
+
+--
+
+| Comandi di gestione dei rami                         |                                                              |
+| ---------------------------------------------------- | ------------------------------------------------------------ |
+| `kart checkout -b <branch>`                          | Creare un ramo di modifica (*branch*) che raggruppa un insieme coordinato di *commit* |
+| `kart checkout <branch>`                             | Passare da un *branch* all'altro aggiornando la *workingcopy* con le relative modifiche |
+| `kart merge <branch>`                                | Includere un *branch* "figlio" nel *branch* "padre"          |
+| **Comandi di risoluzione dei conflitti**             |                                                              |
+| `kart conflicts`                                     | Elencare i conflitti di merge                                |
+| `kart resolve`                                       | Risoluzione dei conflitti di merge                           |
+| **Comandi per la gestione di modifiche distribuite** |                                                              |
+| `kart clone [url_repository]`                        | Clonare un repository remoto per effettuare delle modifiche locali |
+| `kart pull [remote] [branch]`                        | Importare le modifiche da un repository remoto               |
+| `kart push [remote] [branch]`                        | Esportare le modifiche verso un repository remoto            |
 
 
 
