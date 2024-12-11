@@ -4,32 +4,30 @@ Gestire il flusso di lavoro e tenere traccia delle modifiche dei dati geospazial
 
 [(C)2024 CC-BY-SA](https://creativecommons.org/licenses/by-sa/3.0/it/) Enrico Ferreguti enricofer@gmail.com
 
-![https://miro.medium.com/v2/resize:fit:600/0*OIWyeCYB5fYhUhgF.jpg](https://miro.medium.com/v2/resize:fit:600/0*OIWyeCYB5fYhUhgF.jpg)
-
 
 
 --
 
 ## Perchè lavorare con le versioni
 
+- per fare delle prove sui dati esistenti
 - per tenere traccia storica delle modifiche
 - per spiegare le modifiche
-- per fare delle prove sui dati esistenti
 - per coordinare le modifiche su vari dataset
 - per approvare un pacchetto di modifiche
 - per gestire modifiche concorrenti
-- per modificare in modo coordinato vari dataset
 
 --
 
 ## Campi di applicazione
 
 - Urbanistica
-- Reti ed impianti
-- Database topografici
-- 
 
---
+- Reti ed impianti
+
+- Database topografici
+
+  
 
 ## Strategie di versionamento
 
@@ -41,7 +39,7 @@ Gestire il flusso di lavoro e tenere traccia delle modifiche dei dati geospazial
 
 ## Versionamento in altri ambiti operativi
 
-- Database
+- Documenti
 - BIM/CAD
 - Sviluppo Software
   - [SVN](https://subversion.apache.org/)
@@ -49,11 +47,13 @@ Gestire il flusso di lavoro e tenere traccia delle modifiche dei dati geospazial
 
 
 
+--
+
 ## Strumenti di versionamento  geografico opensource
 
-- strumenti a livello di DB [POSTGRES](https://pgxn.org/search?q=version&in=extensions)
 
-  
+
+- strumenti a livello di DB [POSTGRES](https://pgxn.org/search?q=version&in=extensions)
 
 - o strumenti basati su [GIT](https://git-scm.com/about/)
 
@@ -70,21 +70,23 @@ Gestire il flusso di lavoro e tenere traccia delle modifiche dei dati geospazial
 
 https://kartproject.org/
 
-Sviluppato da koordinates.com
-
 Basato su git
 
 Strumento a riga di comando per tutti le piattaforme
 
-Imposta una workingcopy su geopackage o postgres in cui con opportuni trigger viene tenuta traccia delle modifiche effettuate
+Consente importazione ed esportazione dei dati in formati aperti
 
+E' distribuito e collaborativo come git
 
+...
 
 --
 
 ![](doc/kart_features.png)
 
 --
+
+# WORKFLOW
 
 | INIZIALIZZAZIONE DEL REPOSITORY                            | MAIN               | RAMO A                      | RAMO B                      |
 | ---------------------------------------------------------- | ------------------ | --------------------------- | --------------------------- |
@@ -193,13 +195,20 @@ Kart nasce come strumento a riga di comando. Per ovviare alla ridotta operativit
 ## Il caso "Urbanistica"
 
 - la pianificazione vigente viene servita per la visualizzazione (servizi cartografici) e per la stampa (produzione di pdf) e per analisi e monitoraggi e la catalogazione
+
 - La modifica della pianificazione vigente è in capo al consiglio comunale che adotta un piano e approva le controdeduzioni alle osservazioni dei cittadini nell'ambito della partecipazione. E' quindi una procedura complessa discontinua ed intermittente in cui una variante è in lavorazione per lungo tempo parallelamente ad altre varianti
+
 - La variante può coinvolgere uno o più dataset
+
 - Per ogni variante deve essere possibile esaminare l'assetto complessivo e le variazioni puntuali effettuate
+
 - Deve essere tenuta traccia delle variazioni effettuate
+
 - Modifica, verifica, approvazione, monitoraggio devono poter essere svolti in modo semplice
 
+  
 
+--
 
 # Djakart
 
@@ -243,23 +252,31 @@ Da un punto di vista strettamente tecnologico l'applicazione consiste in:
 
 ![](doc/versione_dettagli.png)
 
+
+
 --
 
 ## Editing con QGIS
 
-![](doc\djakart_edit.png)
+![](doc/djakart_edit.png)
+
+
 
 --
 
-## Contronto tra versioni
+## Confronto tra versioni
 
-![](doc\djakart_confronto.gif)
+![](doc/djakart_confronto.gif)
+
+
 
 --
 
 ## DIFF
 
 ![image-20241208133208673](doc/djakart_diff.png)
+
+
 
 --
 
